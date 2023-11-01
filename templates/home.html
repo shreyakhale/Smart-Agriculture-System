@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arduino Sensor Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Agriculture Project</h1>
+    <img src="{{ url_for('static', filename='image.jpg') }}" alt="Agriculture Image" class="header-image">
+    <p>Moisture Percentage: <span id="moisture">{{ data.moisture_percentage }}</span></p>
+    <p>Rain Status: <span id="rain">{{ data.rain_status }}</span></p>
+    <p>Relay Status: <span id="relay">{{ data.relay_status }}</span></p>
+    <p>Motion Detected: <span id="motion">{{ data.motion_detected }}</span></p>
+    <p>Gas Detected: <span id="gas">{{ data.gas_detected }}</span></p>
+
+    <script>
+        function updateData() {
+            fetch('/updatedata')  // Replace '/updatedata' with the appropriate URL
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('moisture').textContent = data.moisture_percentage;
+                    document.getElementById('rain').textContent = data.rain_status;
+                    document.getElementById('relay').textContent = data.relay_status;
+                    document.getElementById('motion').textContent = data.motion_detected;
+                    document.getElementById('gas').textContent = data.gas_detected;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+
+        setInterval(updateData, 5000);  // Refresh every 5 seconds
+        updateData();  // Initial data load
+    </script>
+  </div>
+
+  <footer>
+    <p>Smart Agriculture Project</p>
+    <p>Created by: Shreya Khale, Shreya Sukhadeve, Vaidehi Pawar</p>
+    <p>INFT - B</p>
+  </footer>
+</body>
+</html>
