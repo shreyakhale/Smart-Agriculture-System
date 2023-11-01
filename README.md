@@ -37,8 +37,13 @@ The Flask application plays a crucial role in this project, serving as the user 
 
 - **JSON API**: The Flask application exposes a JSON API endpoint `/updatedata`, which allows external applications to fetch the latest sensor data in JSON format.
 
+## APP INTERFACE
+
+![image](https://github.com/shreyakhale/Smart-Agriculture-System/assets/86523832/616b307d-9a22-4830-b01f-ed0e47b8ead4)
 
 ## Algorithm and Process Design
+
+![image](https://github.com/shreyakhale/Smart-Agriculture-System/assets/86523832/ab24606e-37fa-43b3-a62f-a9c88264018b)
 
 The heart of the project is an Arduino-based system equipped with various sensors, including a moisture sensor, PIR sensor, MQ2 gas sensor, and a rain sensor. The system continuously monitors the soil's moisture level and atmospheric conditions. Here's a brief overview of the system's operations:
 
@@ -63,7 +68,6 @@ The heart of the project is an Arduino-based system equipped with various sensor
 7. Arduino Nano
 8. Water Pump
 9. Breadboard
-
 
 ## Getting Started
 
