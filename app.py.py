@@ -16,8 +16,8 @@ def initialize_db_connection():
     db_connection = mysql.connector.connect(   
         host="localhost",
         user="root",
-        password="shreyakhale@123",
-        database="smartagriculture"
+        password="yourpwd",
+        database="yourdbname"
     )
     cursor = db_connection.cursor()
 
@@ -76,11 +76,11 @@ def update_client_data(id,moisture, rain, relay, motion, gas):
     print("Reached Client - Updated")
     print(id, moisture, rain, relay, motion, gas)
     global client_data
-    client_data['moisture_percentage'] = round(random.uniform(85, 99), 3)
+    client_data['moisture_percentage'] = moisture_percentage
     client_data['rain_status'] = rain
     client_data['relay_status'] = relay
-    client_data['motion_detected'] = "Yes" if random.randint(0, 1) == 1 else "No"
-    client_data['gas_detected'] = random.randint(10, 20)
+    client_data['motion_detected'] = motion_detected
+    client_data['gas_detected'] = gas_detected
     print("Updated Client")
     print(client_data)
 
@@ -103,7 +103,7 @@ def fetch_data():
 
 @app.route('/')
 def home():
-    print("Inside HOme")
+    print("Inside Home")
     print(client_data)
     return render_template("home.html", data=client_data)
 
